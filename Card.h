@@ -11,8 +11,8 @@ private:
 public:
 	Card(Suit suit, int value); 
 
-	Suit GetSuit() const;
-	int GetValue() const;
+	Suit getSuit() const;
+	int getValue() const;
 
 	bool operator==(Card& other) const;
 	bool operator>(Card& other) const;

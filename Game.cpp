@@ -5,7 +5,7 @@ Game::Game(unsigned int numPlayers) : numPlayers(numPlayers) {
 	std::vector<std::string> names = { "Bork", "Marc", "Alf" }; // Random names
 	
 	for (int i = 1; i <= numPlayers; i++) {
-		Player p(i, names[GenerateClampedRandom(0, names.size())]);
+		Player p(i, names[generateClampedRandom(0, names.size())]);
 		players.push_back(p);
 	}
 
@@ -23,7 +23,7 @@ Game::Game(unsigned int numPlayers) : numPlayers(numPlayers) {
 	std::list<Player>::iterator it = players.begin();
 	for (; it != players.end(); it++) {
 		for (int i = 0; i < 10; i++) { 
-			it->InsertCard(getNewCard());
+			it->insertCard(getNewCard());
 		}
 	}
 }
@@ -40,7 +40,7 @@ void Game::discardCard(Card const card) {
 void Game::printDiscarded() const{
 	std::cout << "Last discarded card is: ";
 
-	switch (discarded.back().GetValue()) // if is 1 is Ace, 11 is Jack, 12 is queen and 13 is king
+	switch (discarded.back().getValue()) // if is 1 is Ace, 11 is Jack, 12 is queen and 13 is king
 	{
 	case 1:
 		std::cout << "Ace of ";
@@ -55,11 +55,11 @@ void Game::printDiscarded() const{
 		std::cout << "King of ";
 		break;
 	default:
-		std::cout << discarded.back().GetValue() + " of ";
+		std::cout << discarded.back().getValue() + " of ";
 		break;
 	}
 
-	switch (discarded.back().GetSuit()) // Print Suit
+	switch (discarded.back().getSuit()) // Print Suit
 	{
 	case HEART:
 		std::cout << "Hearts" << std::endl;

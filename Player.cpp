@@ -3,25 +3,25 @@
 
 Player::Player(unsigned int id, std::string name) : id(id), name(name){ }
 
-void Player::InsertCard(Card card) {
+void Player::insertCard(Card card) {
 	hand.push_back(card);
-	SortCards();
+	sortCards();
 }
 
-Card Player::GetCard() const{
+Card Player::getCard() const{
 	Card card(CLUB, 0);
 	if (hand.empty()) {
 		std::cout << "ERROR: La mano esta vacia" << std::endl;
 		return card; // Has value 0 witch means hand is empty
 	}
 	
-	int random = GenerateClampedRandom(1, hand.size());
+	int random = generateClampedRandom(1, hand.size());
 	card = hand[random];
 
 	return card;
 }
 
-Card Player::GetCard(Suit& const suit) {
+Card Player::getCard(Suit& const suit) {
 	Card card(CLUB, 0);
 	if (hand.empty()) {
 		std::cout << "ERROR: La mano esta vacia" << std::endl;
@@ -30,7 +30,7 @@ Card Player::GetCard(Suit& const suit) {
 
 	
 	for (int i = 0; i < hand.size(); i) {
-		if (hand[i].GetSuit() == suit && card.GetValue() < hand[i].GetValue()) {
+		if (hand[i].getSuit() == suit && card.getValue() < hand[i].getValue()) {
 			card = hand[i];
 		}
 	}
@@ -38,7 +38,7 @@ Card Player::GetCard(Suit& const suit) {
 	return card;
 }
 
-void Player::SortCards() {
+void Player::sortCards() {
 	if (hand.empty()) {
 		std::cout << "ERROR: La mano esta vacia" << std::endl;
 		return; // Has value 0 witch means hand is empty

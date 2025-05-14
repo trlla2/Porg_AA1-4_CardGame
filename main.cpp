@@ -3,5 +3,5 @@
 
 int main() {
 	srand(time(NULL));
-	std::cout << HEART;
+	
 }

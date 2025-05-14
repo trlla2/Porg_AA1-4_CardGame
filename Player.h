@@ -11,9 +11,9 @@ private:
 	std::vector<Card> hand;
 public:
 	Player(unsigned int id, std::string name);
-	void InsertCard(Card card);
-	Card GetCard() const;
-	Card GetCard(Suit& const suit);
-	void SortCards();
+	void insertCard(Card card);
+	Card getCard() const;
+	Card getCard(Suit& const suit);
+	void sortCards();
 };
 
