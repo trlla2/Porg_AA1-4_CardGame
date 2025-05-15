@@ -11,7 +11,7 @@ Game::Game(unsigned int numPlayers) : numPlayers(numPlayers) {
 
 	// Create deck
 	for (int i = 0; i <= HEART; i++) { // for each suit
-		for (int j = 1; i <= 13; i++) { // for each value
+		for (int j = 1; j <= 13; j++) { // for each value
 			Card card((Suit)i, j);
 			deck.push_back(card); 
 		}
